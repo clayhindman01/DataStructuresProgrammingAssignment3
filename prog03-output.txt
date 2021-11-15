@@ -1,0 +1,46 @@
+a: 32
+Map Size: 79487
+Max Collisions: 16, key: 796153092
+
+a: 33
+Map Size: 84048
+Max Collisions: 2, key: 570274167
+[autoclaves, cunningly]
+
+a: 34
+Map Size: 84048
+Max Collisions: 2, key: 154554148
+[offhand, pylon]
+
+a: 35
+Map Size: 84047
+Max Collisions: 2, key: 2013065557
+[leninism, schultz]
+
+a: 36
+Map Size: 84031
+Max Collisions: 2, key: 1162002842
+[administration, maladministration]
+
+a: 37
+Map Size: 84048
+Max Collisions: 2, key: 2059149773
+[diggers, reorganisation]
+
+a: 38
+Map Size: 84049
+Max Collisions: 0, key: 0
+
+a: 39
+Map Size: 84049
+Max Collisions: 0, key: 0
+
+a: 40
+Map Size: 83710
+Max Collisions: 4, key: -424472221
+[dedications, duplications, implications, replications]
+
+a: 41
+Map Size: 84047
+Max Collisions: 2, key: -1700784065
+[gramicidin, hollered]

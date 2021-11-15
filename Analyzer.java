@@ -1,7 +1,11 @@
 import java.io.File;
 import java.util.Scanner;
+
+import javax.swing.plaf.ColorUIResource;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Analyzer {
 
@@ -51,9 +55,53 @@ public class Analyzer {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(hashCode(3, "stop"));
+		Map<Integer, ArrayList<String>> dictionary = new ProbeHashMap<>();
 
-		//TODO: Create map that will store the hashed value.
+		//ArrayList that will store key, # of collisions
+		ArrayList<ArrayList<Integer>> collisions = new ArrayList<ArrayList<Integer>>();
+		int a = 41;
+		int biggest = 0;
+		int biggest_key = 0;
+		
+		try {
+			File source = new File("dictionary.txt");
+			Scanner input = new Scanner(source);
+			int i = 0;
+			while (input.hasNext()) {
+				String word = input.next();
+				int key = hashCode(a, word);
+				ArrayList<String> mappedValue = new ArrayList<String>();
+				mappedValue.add(word);
+				if (dictionary.get(key) == null) {
+					dictionary.put(key, mappedValue);
+				} else {
+					mappedValue = dictionary.get(key);
+					mappedValue.add(word);
+					dictionary.put(key, mappedValue);
+					if (dictionary.get(key) != null) {
+						if (dictionary.get(key).size() > biggest) {
+							biggest = dictionary.get(key).size();
+							biggest_key = key;
+						}
+					}
+				}
+				i++;
+			}
+			// for (int i = 0; i <= dictionary.size(); i++) {
+				
+			// }
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+      		e.printStackTrace();
+		}
+		System.out.println("a: " + a);
+		System.out.println("Map Size: " + dictionary.size());
+		System.out.println("Max Collisions: " + biggest + ", key: " + biggest_key);
+		if (dictionary.get(biggest_key) != null) {
+			if (dictionary.get(biggest_key).size() < 10) {
+				System.out.println(dictionary.get(biggest_key));
+			}
+		}
 	}
 
 }

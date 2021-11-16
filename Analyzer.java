@@ -55,21 +55,20 @@ public class Analyzer {
 	
 	
 	public static void main(String[] args) {
+		//Instance variables for the main function
 		Map<Integer, ArrayList<String>> dictionary = new ProbeHashMap<>();
-
-		//ArrayList that will store key, # of collisions
-		ArrayList<ArrayList<Integer>> collisions = new ArrayList<ArrayList<Integer>>();
-		int a = 41;
+		int a = 1;
 		int biggest = 0;
 		int biggest_key = 0;
 		
 		try {
 			File source = new File("dictionary.txt");
 			Scanner input = new Scanner(source);
-			int i = 0;
 			while (input.hasNext()) {
 				String word = input.next();
 				int key = hashCode(a, word);
+
+				//Add ArrayList to 
 				ArrayList<String> mappedValue = new ArrayList<String>();
 				mappedValue.add(word);
 				if (dictionary.get(key) == null) {
@@ -78,6 +77,8 @@ public class Analyzer {
 					mappedValue = dictionary.get(key);
 					mappedValue.add(word);
 					dictionary.put(key, mappedValue);
+
+					//Null checking and collision checking
 					if (dictionary.get(key) != null) {
 						if (dictionary.get(key).size() > biggest) {
 							biggest = dictionary.get(key).size();
@@ -85,11 +86,8 @@ public class Analyzer {
 						}
 					}
 				}
-				i++;
 			}
-			// for (int i = 0; i <= dictionary.size(); i++) {
-				
-			// }
+			input.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("An error occurred.");
       		e.printStackTrace();
